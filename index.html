@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    background: black;
+    color: white;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+}
+        
+.card {
+  background: #181c24;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  color: rgb(88 188 250 / 0%);
+  cursor: pointer;
+}
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.card:hover {
+  color: rgb(88 188 250 / 100%);
+  transition: color 1s;
+}
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+.card:hover::before,
+.card:hover::after {
+  animation: none;
+  opacity: 0;
+}
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #6a3094,
+    #c02425 44%,
+    #f0cb35
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: animate 2.5s linear infinite;
+}
+.card::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  background-image: linear-gradient(
+    var(--rotate),
+    #6a3094,
+    #c02425 44%,
+    #f0cb35
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: animate 2.5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+</style>
+</head>
+<body>
+     <div class="card">
+     <h2>Join Today</h2>
+ </div>
+</body>
+</html>
